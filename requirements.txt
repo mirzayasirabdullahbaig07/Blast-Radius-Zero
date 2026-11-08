@@ -1,0 +1,7 @@
+streamlit>=1.40
+openai>=1.30
+python-dotenv>=1.0
+pandas
+numpy
+matplotlib
+scipy
