@@ -155,7 +155,7 @@ Python, Streamlit, FastAPI, Docker, pandas, matplotlib, nginx, Vultr Cloud Compu
 
 ## Author
 
-Built by **Hamna Munir**.
+Built by **Mirza Yasir Abdullah Baig**.
 
 ## License
 
