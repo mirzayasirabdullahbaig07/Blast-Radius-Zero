@@ -1,0 +1,241 @@
+date,region,product,units,revenue
+2026-01-01,East,Switch,36,7788.21
+2026-01-02,North,Cable Kit,7,122.62
+2026-01-03,North,Cable Kit,14,228.69
+2026-01-04,West,Access Point,5,450.36
+2026-01-05,West,Router,37,4105.94
+2026-01-06,South,Cable Kit,4,73.11
+2026-01-07,West,Router,15,1636.77
+2026-01-08,South,Firewall,27,13542.65
+2026-01-09,North,Cable Kit,20,364.34
+2026-01-10,South,Router,38,4624.94
+2026-01-11,South,Firewall,7,3816.09
+2026-01-12,North,Cable Kit,4,73.71
+2026-01-13,West,Cable Kit,28,531.94
+2026-01-14,West,Cable Kit,30,525.05
+2026-01-15,South,Switch,16,3079.01
+2026-01-16,East,Cable Kit,42,812.72
+2026-01-17,West,Firewall,39,23082.5
+2026-01-18,North,Cable Kit,27,453.43
+2026-01-19,East,Switch,42,8681.88
+2026-01-20,North,Cable Kit,37,704.51
+2026-01-21,East,Firewall,33,18156.33
+2026-01-22,West,Router,6,784.03
+2026-01-23,West,Router,4,502.19
+2026-01-24,East,Cable Kit,39,671.76
+2026-01-25,West,Firewall,2,1175.18
+2026-01-26,East,Switch,50,9695.9
+2026-01-27,North,Switch,19,3694.21
+2026-01-28,South,Access Point,26,2675.91
+2026-01-29,West,Router,11,1306.59
+2026-01-30,East,Switch,38,8560.92
+2026-01-31,East,Access Point,33,3249.57
+2026-02-01,West,Switch,10,1924.85
+2026-02-02,South,Switch,15,2842.6
+2026-02-03,South,Firewall,19,9242.4
+2026-02-04,West,Cable Kit,24,441.49
+2026-02-05,East,Switch,43,9843.1
+2026-02-06,North,Access Point,36,3346.39
+2026-02-07,West,Access Point,7,662.54
+2026-02-08,West,Router,13,1425.01
+2026-02-09,South,Access Point,11,963.48
+2026-02-10,North,Router,1,121.6
+2026-02-11,North,Firewall,40,19550.16
+2026-02-12,South,Cable Kit,25,418.37
+2026-02-13,East,Firewall,49,25741.15
+2026-02-14,North,Router,32,4218.7
+2026-02-15,West,Access Point,31,2834.18
+2026-02-16,South,Router,22,2766.91
+2026-02-17,West,Switch,34,6458.98
+2026-02-18,East,Switch,45,10232.74
+2026-02-19,East,Router,27,3251.92
+2026-02-20,South,Firewall,15,8152.8
+2026-02-21,East,Switch,50,11154.17
+2026-02-22,South,Switch,26,5721.94
+2026-02-23,South,Switch,34,7129.69
+2026-02-24,North,Router,18,2148.01
+2026-02-25,South,Cable Kit,23,409.63
+2026-02-26,East,Firewall,16,8156.96
+2026-02-27,South,Access Point,13,1194.92
+2026-02-28,West,Cable Kit,40,769.02
+2026-03-01,West,Firewall,6,3456.85
+2026-03-02,North,Access Point,13,1229.57
+2026-03-03,South,Access Point,22,1917.26
+2026-03-04,West,Access Point,26,2590.22
+2026-03-05,North,Switch,11,2537.82
+2026-03-06,North,Switch,38,8626.14
+2026-03-07,South,Cable Kit,39,769.43
+2026-03-08,East,Switch,46,9753.29
+2026-03-09,North,Router,7,844.47
+2026-03-10,South,Access Point,13,1315.56
+2026-03-11,South,Router,17,1922.81
+2026-03-12,South,Cable Kit,21,359.81
+2026-03-13,West,Switch,4,908.88
+2026-03-14,East,Access Point,48,4847.32
+2026-03-15,West,Cable Kit,9,163.03
+2026-03-16,North,Access Point,12,1164.75
+2026-03-17,South,Switch,10,2088.87
+2026-03-18,North,Cable Kit,4,69.49
+2026-03-19,West,Router,36,3937.09
+2026-03-20,South,Firewall,3,1708.21
+2026-03-21,West,Cable Kit,2,37.87
+2026-03-22,North,Access Point,21,2039.9
+2026-03-23,South,Firewall,29,15685.55
+2026-03-24,West,Cable Kit,16,299.47
+2026-03-25,East,Cable Kit,23,442.15
+2026-03-26,South,Access Point,8,743.64
+2026-03-27,East,Router,26,3075.28
+2026-03-28,South,Firewall,8,4663.03
+2026-03-29,South,Firewall,10,5133.36
+2026-03-30,South,Access Point,15,1495.3
+2026-03-31,North,Access Point,32,2834.98
+2026-04-01,South,Switch,28,6461.03
+2026-04-02,West,Firewall,27,13692.79
+2026-04-03,East,Router,34,3687.9
+2026-04-04,West,Access Point,2,185.61
+2026-04-05,East,Cable Kit,15,249.09
+2026-04-06,South,Router,6,686.24
+2026-04-07,North,Switch,18,3973.37
+2026-04-08,West,Firewall,26,13055.43
+2026-04-09,West,Firewall,6,3096.83
+2026-04-10,South,Access Point,5,453.05
+2026-04-11,North,Router,17,1870.17
+2026-04-12,South,Router,17,2188.01
+2026-04-13,West,Router,22,2900.99
+2026-04-14,West,Firewall,40,19998.25
+2026-04-15,South,Router,11,1257.14
+2026-04-16,South,Switch,20,4308.08
+2026-04-17,South,Firewall,29,15660.28
+2026-04-18,South,Firewall,23,13174.34
+2026-04-19,East,Router,11,1192.87
+2026-04-20,South,Cable Kit,31,529.62
+2026-04-21,West,Router,28,3465.17
+2026-04-22,West,Cable Kit,20,373.52
+2026-04-23,South,Firewall,13,7486.53
+2026-04-24,South,Access Point,23,2395.58
+2026-04-25,South,Router,5,615.05
+2026-04-26,East,Access Point,21,1817.61
+2026-04-27,West,Cable Kit,19,348.76
+2026-04-28,East,Router,40,4497.94
+2026-04-29,East,Access Point,11,995.52
+2026-04-30,East,Cable Kit,31,529.48
+2026-05-01,East,Switch,33,6490.58
+2026-05-02,East,Access Point,16,1512.29
+2026-05-03,South,Switch,33,7312.87
+2026-05-04,North,Firewall,6,3009.22
+2026-05-05,North,Access Point,2,182.39
+2026-05-06,South,Router,38,4977.37
+2026-05-07,South,Cable Kit,25,473.79
+2026-05-08,West,Switch,19,4168.88
+2026-05-09,South,Router,33,4060.85
+2026-05-10,South,Cable Kit,33,602.14
+2026-05-11,North,Cable Kit,15,247.59
+2026-05-12,North,Switch,24,5503.19
+2026-05-13,West,Access Point,36,3112.73
+2026-05-14,North,Cable Kit,16,287.38
+2026-05-15,North,Access Point,5,498.59
+2026-05-16,North,Cable Kit,5,94.42
+2026-05-17,West,Firewall,5,2886.91
+2026-05-18,South,Switch,15,3301.09
+2026-05-19,West,Access Point,25,2173.95
+2026-05-20,East,Router,50,6159.35
+2026-05-21,South,Router,39,4349.99
+2026-05-22,East,Firewall,50,27365.91
+2026-05-23,North,Access Point,4,378.92
+2026-05-24,North,Switch,32,6438.91
+2026-05-25,East,Access Point,40,3774.42
+2026-05-26,North,Cable Kit,13,225.19
+2026-05-27,North,Access Point,2,182.0
+2026-05-28,North,Cable Kit,29,573.57
+2026-05-29,West,Switch,14,2689.87
+2026-05-30,North,Switch,34,6799.86
+2026-05-31,East,Switch,49,10949.01
+2026-06-01,East,Router,34,3860.81
+2026-06-02,West,Access Point,2,177.04
+2026-06-03,West,Access Point,26,2372.16
+2026-06-04,South,Access Point,23,2130.86
+2026-06-05,North,Firewall,1,521.05
+2026-06-06,East,Access Point,18,1860.44
+2026-06-07,South,Router,19,2167.46
+2026-06-08,North,Access Point,25,2611.93
+2026-06-09,North,Firewall,28,15893.1
+2026-06-10,North,Firewall,7,3441.02
+2026-06-11,East,Switch,26,5974.37
+2026-06-12,West,Cable Kit,21,354.55
+2026-06-13,East,Access Point,12,1211.13
+2026-06-14,West,Cable Kit,36,609.57
+2026-06-15,North,Router,27,3208.16
+2026-06-16,South,Firewall,32,15721.26
+2026-06-17,South,Switch,31,6399.16
+2026-06-18,East,Firewall,27,15277.02
+2026-06-19,East,Access Point,26,2371.61
+2026-06-20,West,Router,11,1357.81
+2026-06-21,North,Switch,33,7492.66
+2026-06-22,West,Cable Kit,15,267.46
+2026-06-23,East,Access Point,38,3349.79
+2026-06-24,South,Switch,6,1178.02
+2026-06-25,North,Firewall,16,8412.43
+2026-06-26,South,Router,27,3164.08
+2026-06-27,South,Access Point,18,1654.67
+2026-06-28,North,Access Point,18,1735.4
+2026-06-29,East,Switch,43,9082.78
+2026-06-30,South,Router,18,2331.41
+2026-07-01,West,Access Point,29,2717.44
+2026-07-02,East,Router,19,2066.7
+2026-07-03,West,Cable Kit,32,518.42
+2026-07-04,West,Cable Kit,30,591.0
+2026-07-05,South,Router,15,1675.58
+2026-07-06,North,Access Point,6,575.87
+2026-07-07,North,Router,9,1022.24
+2026-07-08,North,Firewall,9,4982.93
+2026-07-09,West,Router,7,767.82
+2026-07-10,South,Access Point,17,1525.72
+2026-07-11,North,Router,35,4033.28
+2026-07-12,West,Firewall,21,11667.9
+2026-07-13,South,Access Point,34,3058.66
+2026-07-14,South,Router,27,3372.62
+2026-07-15,East,Router,12,1351.91
+2026-07-16,West,Router,17,1928.96
+2026-07-17,West,Firewall,15,8088.57
+2026-07-18,East,Access Point,34,3347.94
+2026-07-19,South,Router,19,2389.04
+2026-07-20,North,Switch,32,7351.49
+2026-07-21,East,Switch,25,5213.37
+2026-07-22,East,Firewall,17,10009.74
+2026-07-23,West,Cable Kit,12,233.13
+2026-07-24,West,Access Point,4,414.11
+2026-07-25,South,Access Point,4,358.18
+2026-07-26,South,Access Point,4,395.95
+2026-07-27,South,Access Point,29,2974.39
+2026-07-28,East,Router,16,2085.73
+2026-07-29,East,Switch,22,4760.88
+2026-07-30,West,Router,20,2478.93
+2026-07-31,West,Firewall,22,11743.23
+2026-08-01,North,Router,6,688.29
+2026-08-02,East,Access Point,18,1730.91
+2026-08-03,South,Access Point,23,2302.44
+2026-08-04,East,Access Point,16,1382.97
+2026-08-05,West,Switch,24,5081.86
+2026-08-06,West,Switch,21,4290.27
+2026-08-07,West,Router,27,3076.71
+2026-08-08,West,Router,25,2720.91
+2026-08-09,North,Router,17,1915.54
+2026-08-10,North,Cable Kit,22,385.15
+2026-08-11,East,Cable Kit,13,222.87
+2026-08-12,East,Firewall,30,14592.22
+2026-08-13,North,Router,15,1658.61
+2026-08-14,West,Access Point,17,1748.57
+2026-08-15,West,Switch,32,6293.87
+2026-08-16,East,Switch,49,9746.98
+2026-08-17,East,Access Point,34,3413.36
+2026-08-18,North,Cable Kit,13,228.93
+2026-08-19,South,Switch,27,5176.41
+2026-08-20,North,Access Point,36,3450.52
+2026-08-21,South,Access Point,7,729.88
+2026-08-22,East,Cable Kit,16,271.2
+2026-08-23,West,Access Point,29,2574.93
+2026-08-24,South,Access Point,30,2918.58
+2026-08-25,South,Cable Kit,8,152.06
+2026-08-26,East,Firewall,28,15322.26
+2026-08-27,East,Firewall,27,13702.84
+2026-08-28,South,Switch,16,3182.26

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blast Radius Zero · sandboxed data analyst on Vultr</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eceff3; --card:#ffffff; --ink:#12202e; --muted:#5b6b7b; --line:#cfd6de;
+  --blue:#0a6cff; --ok:#0b8a65; --ok-bg:#dff3ec; --bad:#c8332b; --bad-bg:#fbe3e1; --amber:#a86400; --amber-bg:#fff0d4;
+  --code:#101a26; --code-ink:#d7e3f0;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 "Schibsted Grotesk",system-ui,sans-serif}
+.mono,code,pre{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+header{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;max-width:1180px;margin:0 auto;padding:2.2rem 1.25rem 1.2rem}
+h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.02;margin:0 0 .6rem;font-weight:800;letter-spacing:-.02em}
+header p{margin:0;max-width:56ch;color:var(--muted);font-size:1.05rem}
+.rings{width:150px;height:150px}
+.rings circle{fill:none;stroke:var(--ink);stroke-width:1.5}
+.rings .core{fill:var(--blue);stroke:none}
+.rings .r1{animation:pulse 3.2s ease-out infinite}
+@keyframes pulse{0%{opacity:.9}100%{opacity:.1}}
+@media (prefers-reduced-motion:reduce){.rings .r1{animation:none}}
+.status{max-width:1180px;margin:0 auto;padding:0 1.25rem 1rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.pill{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:.2rem .75rem;font-size:.85rem}
+.pill b{font-weight:700}
+.pill.ok{background:var(--ok-bg);border-color:#a8dcc8;color:#06573f}
+.pill.bad{background:var(--bad-bg);border-color:#efb3ae;color:#8f221c}
+main{max-width:1180px;margin:0 auto;padding:0 1.25rem 3rem;display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:1.25rem;align-items:start}
+@media (max-width:860px){main{grid-template-columns:1fr}header{grid-template-columns:1fr}.rings{display:none}}
+section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1.25rem}
+h2{font-size:1.15rem;margin:0 0 .75rem}
+label{display:block;font-weight:700;margin:.9rem 0 .3rem}
+textarea,input[type=file]{width:100%;font:inherit;border:1px solid var(--line);border-radius:6px;padding:.6rem;background:#fafbfc;color:var(--ink)}
+textarea{min-height:96px;resize:vertical}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+button{font:inherit;font-weight:700;border-radius:6px;border:1px solid var(--ink);background:var(--card);color:var(--ink);padding:.55rem .9rem;cursor:pointer}
+button.primary{background:var(--blue);border-color:var(--blue);color:#fff;width:100%;margin-top:1rem;padding:.75rem}
+button:disabled{opacity:.55;cursor:wait}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
+.chips button{font-weight:500;font-size:.85rem;padding:.25rem .6rem;border-color:var(--line)}
+.hint{color:var(--muted);font-size:.88rem;margin:.4rem 0 0}
+.steps{list-style:none;margin:0 0 1rem;padding:0;border-left:3px solid var(--line)}
+.steps li{padding:.25rem 0 .25rem .8rem;position:relative;font-size:.92rem}
+.steps li::before{content:"";position:absolute;left:-7px;top:.8rem;width:11px;height:11px;border-radius:50%;background:var(--line)}
+.steps li.sandbox::before,.steps li.verify::before{background:var(--ok)}
+.steps li.llm::before{background:var(--blue)}
+.steps li.retry::before,.steps li.error::before{background:var(--bad)}
+.steps small{display:block;color:var(--muted)}
+.answer{font-size:1.1rem;padding:.9rem 1rem;border-radius:8px;background:var(--ok-bg);border:1px solid #a8dcc8;margin:0 0 1rem}
+.answer.fail{background:var(--bad-bg);border-color:#efb3ae}
+pre{background:var(--code);color:var(--code-ink);padding:.8rem;border-radius:8px;overflow:auto;font-size:.84rem;margin:.4rem 0;max-height:320px}
+details{margin:.5rem 0}
+summary{cursor:pointer;font-weight:700}
+.imgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.75rem;margin:.75rem 0}
+.imgs img{width:100%;border:1px solid var(--line);border-radius:8px;background:#fff}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+td,th{border-bottom:1px solid var(--line);padding:.35rem .5rem;text-align:left;vertical-align:top}
+.lab{max-width:1180px;margin:0 auto;padding:0 1.25rem 3rem}
+.probe{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.5rem 1rem;padding:.8rem 0;border-bottom:1px solid var(--line)}
+.probe:last-child{border:0}
+.probe h3{margin:0;font-size:1rem}
+.probe p{margin:.1rem 0 0;color:var(--muted);font-size:.9rem}
+.verdict{grid-column:1/-1;border-radius:6px;padding:.5rem .7rem;font-size:.88rem}
+.verdict.ok{background:var(--ok-bg);color:#06573f}
+.verdict.bad{background:var(--bad-bg);color:#8f221c}
+.verdict pre{background:transparent;color:inherit;padding:0;margin:.2rem 0 0;max-height:120px}
+.labhead{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Blast Radius Zero</h1>
+    <p>Ask a question about your CSV. An AI on Vultr writes the code, a locked-down container runs it, and you get real output back. Whatever the code does, it can't leave the box.</p>
+  </div>
+  <svg class="rings" viewBox="0 0 150 150" aria-label="Concentric rings around a single contained point"><circle class="r1" cx="75" cy="75" r="70"/><circle cx="75" cy="75" r="50" opacity=".5"/><circle cx="75" cy="75" r="30" opacity=".8"/><circle class="core" cx="75" cy="75" r="9"/></svg>
+</header>
+<div class="status" id="status" aria-live="polite"></div>
+
+<main>
+  <section aria-labelledby="ask-h">
+    <h2 id="ask-h">Ask your data</h2>
+    <label for="file">CSV file</label>
+    <input id="file" type="file" accept=".csv,text/csv">
+    <p class="hint">Up to 5 MB. Optional: you can also ask a pure-code question. <button type="button" id="sampleBtn" style="padding:.15rem .5rem;font-size:.85rem">Use sample sales.csv</button></p>
+    <label for="q">Your question</label>
+    <textarea id="q" placeholder="Which region sells the most, and how does revenue change by month?"></textarea>
+    <div class="chips" id="chips"></div>
+    <button class="primary" id="run">Run analysis in sandbox</button>
+    <p class="hint" id="fileName"></p>
+  </section>
+
+  <section aria-labelledby="out-h" aria-live="polite">
+    <h2 id="out-h">Verified result</h2>
+    <div id="out"><p class="hint">Nothing has run yet. Load the sample file and pick a question to start.</p></div>
+  </section>
+</main>
+
+<div class="lab">
+  <section aria-labelledby="lab-h">
+    <div class="labhead">
+      <div><h2 id="lab-h" style="margin:0">Containment lab</h2>
+      <p class="hint" style="margin:.2rem 0 0">Hostile programs that try to escape. Each runs in the same sandbox as your analysis and must be blocked.</p></div>
+      <button id="runAll">Run all attacks</button>
+    </div>
+    <div id="probes"></div>
+  </section>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let sampleFile = null;
+
+const QUESTIONS = [
+  "Which region sells the most, and how does revenue change by month?",
+  "Show revenue by product as a bar chart and name the top product.",
+  "Are there any outlier days in revenue? Plot them.",
+];
+$("#chips").innerHTML = QUESTIONS.map((t,i)=>`<button type="button" data-i="${i}">${esc(t.split(",")[0].slice(0,34))}…</button>`).join("");
+$("#chips").addEventListener("click", e => { const b=e.target.closest("button"); if(b) $("#q").value = QUESTIONS[b.dataset.i]; });
+
+$("#sampleBtn").onclick = async () => {
+  const blob = await (await fetch("/api/samples/sales.csv")).blob();
+  sampleFile = new File([blob], "sales.csv", {type:"text/csv"});
+  $("#file").value = "";
+  $("#fileName").textContent = "Loaded sample: sales.csv (240 rows)";
+  if(!$("#q").value) $("#q").value = QUESTIONS[0];
+};
+$("#file").onchange = () => { sampleFile = null; $("#fileName").textContent = $("#file").files[0]?.name || ""; };
+
+async function health(){
+  try{
+    const h = await (await fetch("/api/health")).json();
+    const L = h.limits;
+    const pills = [
+      ...(h.mode==="local" ? [[false,"Mode","local test (no Docker, not isolated)"]] : [[true,"Mode","docker sandbox"]]),
+      [h.docker && h.image_built, "Sandbox image", h.image_built ? "ready" : "not built"],
+      [h.inference_key_set, "Vultr Inference key", h.inference_key_set ? "set" : "missing"],
+      [true, "Network", L.network],
+      [true, "Memory", L.memory],
+      [true, "CPU", L.cpus],
+      [true, "Timeout", L.timeout_sec + "s"],
+      [true, "Max processes", L.pids],
+      [true, "Secrets inside", "0"],
+    ];
+    $("#status").innerHTML = pills.map(([ok,k,v]) => `<span class="pill ${ok?"ok":"bad"}"><b>${esc(k)}</b> ${esc(v)}</span>`).join("");
+  }catch(e){ $("#status").innerHTML = '<span class="pill bad">Backend not reachable</span>'; }
+}
+
+function render(r){
+  const steps = r.timeline.map(t=>`<li class="${esc(t.kind)}">${esc(t.title)}<small>${esc(t.detail)}</small></li>`).join("");
+  const imgs = (r.images||[]).map(i=>`<img alt="${esc(i.name)}" src="data:image/png;base64,${i.b64}">`).join("");
+  const att = r.attempts.map(a=>{
+    const s=a.sandbox;
+    return `<details ${a.n===r.attempts.length?"open":""}><summary>Attempt ${a.n}: ${a.ok?"succeeded":"failed"}${s?` · ${s.duration_ms} ms`:""}</summary>
+      <pre>${esc(a.code||a.error)}</pre>
+      ${s?`<table><tr><th>exit code</th><td>${s.exit_code}${s.timed_out?" (timed out)":""}${s.oom_killed?" (out of memory)":""}</td></tr>
+      <tr><th>container</th><td class="mono">${esc(s.container)} · destroyed: ${s.container_destroyed} · workdir wiped: ${s.workdir_wiped}</td></tr>
+      <tr><th>code hash</th><td class="mono">${esc(s.code_sha256)}</td></tr></table>
+      <p class="hint">stdout</p><pre>${esc(s.stdout||"(empty)")}</pre>${s.stderr?`<p class="hint">stderr</p><pre>${esc(s.stderr)}</pre>`:""}`:""}</details>`;
+  }).join("");
+  const L = r.containment||{};
+  $("#out").innerHTML = `
+    <p class="answer ${r.success?"":"fail"}">${esc(r.explanation)}</p>
+    ${imgs?`<div class="imgs">${imgs}</div>`:""}
+    <ul class="steps">${steps}</ul>
+    ${att}
+    <details><summary>Containment used for this run</summary><table>${Object.entries(L).map(([k,v])=>`<tr><th>${esc(k)}</th><td>${esc(v)}</td></tr>`).join("")}</table>
+    <p class="hint">Model: ${esc(r.model)} · total ${r.total_ms} ms</p></details>`;
+}
+
+$("#run").onclick = async () => {
+  const q = $("#q").value.trim();
+  if(!q){ $("#q").focus(); return; }
+  const fd = new FormData(); fd.append("question", q);
+  const f = sampleFile || $("#file").files[0];
+  if(f) fd.append("file", f);
+  const btn = $("#run"); btn.disabled = true; btn.textContent = "Running in sandbox…";
+  $("#out").innerHTML = '<p class="hint">Writing code, running it in a fresh container, checking the output. This takes 10 to 40 seconds.</p>';
+  try{
+    const res = await fetch("/api/analyze",{method:"POST",body:fd});
+    const data = await res.json();
+    if(!res.ok) throw new Error(data.detail || res.statusText);
+    render(data);
+  }catch(e){
+    $("#out").innerHTML = `<p class="answer fail">${esc(e.message)}</p>`;
+  }finally{ btn.disabled=false; btn.textContent="Run analysis in sandbox"; }
+};
+
+let probeList = [];
+async function loadProbes(){
+  probeList = await (await fetch("/api/probes")).json();
+  $("#probes").innerHTML = probeList.map(p=>`<div class="probe" id="p-${p.id}">
+    <div><h3>${esc(p.title)}</h3><p>${esc(p.attack)}</p>
+    <details><summary class="hint">Show the attack code</summary><pre>${esc(p.code)}</pre></details></div>
+    <button data-id="${p.id}">Launch attack</button></div>`).join("");
+}
+async function launch(id){
+  const box = $("#p-"+id), btn = box.querySelector("button");
+  box.querySelector(".verdict")?.remove();
+  btn.disabled = true; btn.textContent = "Attacking…";
+  try{
+    const res = await fetch("/api/probes/"+id,{method:"POST"});
+    const r = await res.json();
+    if(!res.ok) throw new Error(r.detail);
+    const why = r.timed_out ? "killed by the timeout" : r.oom_killed ? "killed by the memory cap" : "exit code "+r.exit_code;
+    box.insertAdjacentHTML("beforeend", `<div class="verdict ${r.contained?"ok":"bad"}"><b>${r.contained?"Contained":"BREACH"}</b> · ${esc(why)} · container destroyed: ${r.container_destroyed} · ${r.duration_ms} ms<pre>${esc(r.stdout.trim().split("\n").slice(-3).join("\n"))}</pre></div>`);
+  }catch(e){
+    box.insertAdjacentHTML("beforeend", `<div class="verdict bad">${esc(e.message)}</div>`);
+  }finally{ btn.disabled=false; btn.textContent="Launch attack"; }
+}
+$("#probes").addEventListener("click", e => { const b=e.target.closest("button[data-id]"); if(b) launch(b.dataset.id); });
+$("#runAll").onclick = async () => { for(const p of probeList) await launch(p.id); };
+
+health(); loadProbes();
+</script>
+</body>
+</html>
