@@ -13,6 +13,7 @@
   <img alt="Docker" src="https://img.shields.io/badge/Sandbox-Docker-2496ED?logo=docker&logoColor=white">
   <img alt="Vultr" src="https://img.shields.io/badge/Inference-Vultr%20Serverless-007BFC">
   <img alt="License" src="https://img.shields.io/badge/License-MIT-green">
+  <img alt="License" src="https://img.shields.io/badge/License-MIT-green">
 </p>
 
 ---
